@@ -1,6 +1,3 @@
-// This is the data we will be using to create our articles. Look at it, then proceed to line 93.
-// OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
-// You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -89,6 +86,15 @@ const data = [
   }
 ];
 
+
+
+
+
+// This is the data we will be using to create our articles. Look at it, then proceed to line 93.
+// OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
+// You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
+
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -114,3 +120,49 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(artMakeObj){
+  //! Parent div
+  const article = document.createElement('div');
+  article.classList.add('article');
+
+const headerTwo = document.createElement('h2');
+headerTwo.textContent = artMakeObj.title;
+
+const dateTag = document.createElement('p');
+dateTag.classList.add('date');
+dateTag.textContent = artMakeObj.date;
+
+const pTag1 = document.createElement('p');
+pTag1.textContent = artMakeObj.firstParagraph;
+
+const pTag2 = document.createElement('p');
+pTag2.textContent = artMakeObj.secondParagraph;
+
+const pTag3 = document.createElement('p');
+pTag3.textContent = artMakeObj.thirdParagraph;
+
+const theSpan = document.createElement('span');
+theSpan.textContent = ('+');
+theSpan.classList.add('expandButton');
+theSpan.addEventListener("click", () => {
+  article.classList.toggle('article-open');
+});
+
+
+//! Appeding the funcgtion to the parent 
+article.appendChild(headerTwo);
+article.appendChild(dateTag);
+article.appendChild(pTag1);
+article.appendChild(pTag2);
+article.appendChildO(pTag3);
+article.appendChild(theSpan);
+
+return article;
+
+};
+let divhtml = document.querySelector('div.articles');
+for(let i = 0; i < data.length; i++){
+  let newartmke = articleMaker(data[i]);
+  divhtml.appendChild(newartmke)
+}
