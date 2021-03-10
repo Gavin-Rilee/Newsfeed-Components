@@ -143,7 +143,7 @@ const pTag3 = document.createElement('p');
 pTag3.textContent = artMakeObj.thirdParagraph;
 
 const theSpan = document.createElement('span');
-theSpan.textContent = ('+');
+theSpan.textContent = '+';
 theSpan.classList.add('expandButton');
 theSpan.addEventListener("click", () => {
   article.classList.toggle('article-open');
@@ -155,12 +155,12 @@ article.appendChild(headerTwo);
 article.appendChild(dateTag);
 article.appendChild(pTag1);
 article.appendChild(pTag2);
-article.appendChildO(pTag3);
+article.appendChild(pTag3);
 article.appendChild(theSpan);
 
 return article;
 
-};
+}
 let divhtml = document.querySelector('div.articles');
 for(let i = 0; i < data.length; i++){
   let newartmke = articleMaker(data[i]);
